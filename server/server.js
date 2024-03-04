@@ -3,6 +3,8 @@ import mongoose from "mongoose";
 import { config } from "dotenv";
 import cors from "cors";
 
+import departmentRoutes from "./routes/departmentRoutes.js";
+
 // Import .env variables
 config();
 
@@ -23,6 +25,9 @@ app.use(express.urlencoded({ extended: true }));
 
 // MongoDB
 await mongoose.connect(process.env.MONGO_URI);
+
+// Mount routes
+app.use("/department", departmentRoutes);
 
 app.listen(PORT, () => {
   console.log(`Listening on port: ${PORT}`);
