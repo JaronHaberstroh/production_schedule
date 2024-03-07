@@ -1,9 +1,9 @@
 import Department from "../../models/department.js";
 import serverErrorResponse from "../../responses/serverError.js";
 import successResponse from "../../responses/success.js";
-import { createDepartmentValidation } from "./validation/createDepartmentValidation.js";
+import { createDepartmentValidation } from "./validation/postDepartmentValidation.js";
 
-export const createDepartment = async (req, res) => {
+export const postDepartment = async (req, res) => {
   const departmentData = req.body;
   const { departmentName } = departmentData;
 
@@ -22,7 +22,7 @@ export const createDepartment = async (req, res) => {
     // Respond with success message
     return res.status(201).json(
       successResponse({
-        message: "Department created successfully",
+        message: `Department ${departmentName} created successfully`,
         data: { Department: newDepartment },
       })
     );
