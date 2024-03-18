@@ -3,10 +3,12 @@ import { MongoMemoryServer } from "mongodb-memory-server";
 import mongoose from "mongoose";
 
 const connectDB = async () => {
+  // Import .env variables
   config();
+
+  // Init mongoServer variable
+  let mongoServer = null;
   try {
-    // Init mongoServer variable
-    let mongoServer = null;
     // Init dbUrl variable and set it to .env value
     let mongoUrl = process.env.MONGO_URI;
 

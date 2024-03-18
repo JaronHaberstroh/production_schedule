@@ -2,8 +2,8 @@ import { describe, test, expect } from "vitest";
 import { beforeAll, beforeEach, afterAll } from "vitest";
 import Department from "../../../../models/department.js";
 
-import { connectDB } from "../../../utils/MongoDB/mongooseSetup.js";
-import { disconnectDB } from "../../../utils/MongoDB/mongooseSetup.js";
+import { connectDB } from "../../../../utils/mongoDB/mongooseSetup.js";
+import { disconnectDB } from "../../../../utils/mongoDB/mongooseSetup.js";
 
 import deleteDocument from "../../../../controllers/utils/crud/deleteDocument.js";
 
