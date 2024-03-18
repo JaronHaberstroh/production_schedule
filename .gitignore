@@ -11,7 +11,7 @@ build/
 dist/
 
 # Ignore environment-specific configuration files
-.env
+.env*
 
 # Ignore editor-specific files
 .vscode/
@@ -20,3 +20,6 @@ dist/
 # Ignore logs and temporary files
 *.log
 *.tmp
+
+# Ignore testing reports
+coverage/

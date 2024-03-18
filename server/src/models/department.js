@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 export const departmentSchema = new Schema({
   departmentName: {
     type: String,
-    required: true,
+    required: [true, "departmentName field required"],
   },
 });
 
