@@ -1,15 +1,18 @@
-import { Schema, model } from "mongoose";
+import mongoose, { Schema, model } from "mongoose";
 
 export const linePositionSchema = new Schema({
-  lineId: {
-    type: Schema.Types.ObjectId,
-    required: true,
+  productionLine: {
+    type: mongoose.Types.ObjectId,
+    required: [true, "Line relation is required"],
     ref: "ProductionLine",
   },
-  positionId: {
-    type: Schema.Types.ObjectId,
-    ref: "WorkPosition",
-  },
+  workPositions: [
+    {
+      type: mongoose.Types.ObjectId,
+      required: false,
+      ref: "WorkPosition",
+    },
+  ],
 });
 
 const LinePosition = model("LinePosition", linePositionSchema);

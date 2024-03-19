@@ -3,7 +3,7 @@ import { Schema, model } from "mongoose";
 export const workPositionsSchema = new Schema({
   positionName: {
     type: String,
-    required: true,
+    required: [true, "positionName is required"],
   },
 });
 

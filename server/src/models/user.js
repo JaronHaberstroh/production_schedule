@@ -16,23 +16,23 @@ export const userRoleSchema = new Schema({
 const userSchema = new Schema({
   fName: {
     type: String,
-    required: true,
+    required: [true, "First name is required"],
   },
   lName: {
     type: String,
-    required: true,
+    required: [true, "Last name is required"],
   },
   employeeNumber: {
     type: Number,
-    required: true,
+    required: [true, "EmployeeNumber is required"],
   },
   shift: {
     type: String,
-    required: true,
+    required: [true, "Shift is required"],
   },
   currentPosition: {
     type: String,
-    required: true,
+    required: [true, "Current working position is required"],
     default: "Laborer",
   },
   startDate: {
