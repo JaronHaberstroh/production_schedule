@@ -4,11 +4,14 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "test": "vitest run",
+    "test": "NODE_ENV=test vitest run",
     "coverage": "vitest run --coverage",
     "dev": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
     "dev:client": "cd client && npm run dev",
-    "dev:server": "cd server && npm run dev"
+    "dev:server": "cd server && npm run dev",
+    "prod": "concurrently \"npm run dev:client\" \"npm run dev:server\"",
+    "prod:client": "cd client && npm run prod",
+    "prod:server": "cd server && npm run prod"
   },
   "author": "Jaron Haberstroh",
   "license": "ISC",
