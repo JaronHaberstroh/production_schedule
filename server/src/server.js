@@ -1,7 +1,7 @@
 import mongoose from "mongoose";
 import { config } from "dotenv";
 
-import app from "./app";
+import app from "./app.js";
 
 // Import .env variables
 config();
