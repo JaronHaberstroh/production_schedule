@@ -1,7 +1,7 @@
-import Department from "../../models/department.js";
-import successResponse from "../../responses/success.js";
-import serverErrorResponse from "../../responses/serverError.js";
-import clientErrorResponse from "../../responses/clientError.js";
+import Department from "#models/department.js";
+import successResponse from "#utils/responses/success/success.js";
+import serverErrorResponse from "#utils/responses/error/serverError.js";
+import clientErrorResponse from "#utils/responses/error/clientError.js";
 
 import updateDocument from "../utils/crud/updateDocument.js";
 

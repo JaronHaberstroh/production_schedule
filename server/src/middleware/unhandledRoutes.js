@@ -1,4 +1,4 @@
-import AppError from "../utils/appError";
+import AppError from "#utils/appError.js";
 
 const unhandledRoutes = (req, res, next) => {
   const error = new AppError(

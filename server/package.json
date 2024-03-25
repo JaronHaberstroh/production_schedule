@@ -6,11 +6,19 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "NODE_ENV=development run src/server.js",
-    "prod": "NODE_ENV=production run src/server.js"
+    "dev": "NODE_ENV=development node src/server.js",
+    "prod": "NODE_ENV=production node src/server.js"
   },
   "author": "",
   "license": "ISC",
+  "imports": {
+    "#controllers/*": "./src/controllers/*",
+    "#middleware/*": "./src/middleware/*",
+    "#models/*": "./src/models/*",
+    "#routes/*": "./src/routes/*",
+    "#utils/*": "./src/utils/*",
+    "#src/*": "./src*"
+  },
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",

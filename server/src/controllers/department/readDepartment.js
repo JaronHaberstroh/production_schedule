@@ -1,9 +1,12 @@
-import Department from "../../models/department.js";
-import successResponse from "../../responses/success.js";
+import Department from "#models/department.js";
+import successResponse from "#utils/responses/success/success.js";
+
 import readDocument from "../utils/crud/readDocument.js";
 
 const readDepartment = async (req, res) => {
-  const departmentData = req.param;
+  const departmentData = req.param.departmentName;
+
+  console.log(departmentData);
 
   try {
     // Find Departments fitting search params

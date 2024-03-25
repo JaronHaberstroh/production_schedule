@@ -1,5 +1,5 @@
-import Department from "../../models/department.js";
-import successResponse from "../../responses/success.js";
+import Department from "#models/department.js";
+import successResponse from "#utils/responses/success/success.js";
 
 import deleteDocument from "../utils/crud/deleteDocument.js";
 

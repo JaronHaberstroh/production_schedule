@@ -1,7 +1,8 @@
-import Department from "../../models/department.js";
-import serverErrorResponse from "../../responses/serverError.js";
-import successResponse from "../../responses/success.js";
-import { createDocument } from "../utils/crud/createDocument.js";
+import Department from "#models/department.js";
+import serverErrorResponse from "#utils/responses/error/serverError.js";
+import successResponse from "#utils/responses/success/success.js";
+
+import createDocument from "../utils/crud/createDocument.js";
 
 const createDepartment = async (req, res) => {
   const departmentData = req.body;

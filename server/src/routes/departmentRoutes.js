@@ -1,14 +1,14 @@
 import { Router } from "express";
-import { postDepartment } from "../controllers/department/postDepartment.js";
-import { deleteDepartment } from "../controllers/department/deleteDepartment.js";
-import { getDepartment } from "../controllers/department/getDepartment.js";
-import { patchDepartment } from "../controllers/department/patchDepartment.js";
+import createDepartment from "#controllers/department/createDepartment.js";
+import deleteDepartment from "#controllers/department/deleteDepartment.js";
+import readDepartment from "#controllers/department/readDepartment.js";
+import updateDepartment from "#controllers/department/updateDepartment.js";
 
 const router = Router();
 
-router.post("/create", postDepartment);
-router.get("/read", getDepartment);
-router.patch("/update", patchDepartment);
+router.post("/create", createDepartment);
+router.get("/read", readDepartment);
+router.patch("/update", updateDepartment);
 router.delete("/delete/:id", deleteDepartment);
 
 export default router;
