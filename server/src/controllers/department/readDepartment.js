@@ -4,9 +4,7 @@ import successResponse from "#utils/responses/success/success.js";
 import readDocument from "../utils/crud/readDocument.js";
 
 const readDepartment = async (req, res) => {
-  const departmentData = req.param.departmentName;
-
-  console.log(departmentData);
+  const departmentData = req.params;
 
   try {
     // Find Departments fitting search params

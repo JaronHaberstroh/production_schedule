@@ -7,7 +7,7 @@ import updateDepartment from "#controllers/department/updateDepartment.js";
 const router = Router();
 
 router.post("/create", createDepartment);
-router.get("/read", readDepartment);
+router.get("/read/:departmentName", readDepartment);
 router.patch("/update", updateDepartment);
 router.delete("/delete/:id", deleteDepartment);
 
