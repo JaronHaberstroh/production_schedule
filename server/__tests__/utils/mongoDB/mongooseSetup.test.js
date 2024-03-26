@@ -18,7 +18,6 @@ describe("Database connect/disconnect functions", () => {
 
   test("ConnectDB() should connect to mongod", () => {
     expect(mongoConnection).toBeDefined();
-    console.log(mongoServer);
     expect(mongoServer._instanceInfo.instance.isInstanceReady).toBe(true);
     expect(mongoose.connection.readyState).toBe(1);
   });

@@ -22,7 +22,6 @@ const deleteDocument = async (model, params) => {
     };
   } catch (error) {
     // Handle error
-    console.error("Error deleting document", error);
     return {
       success: false,
       message: error.message || `Error deleting ${model.modelName}`,

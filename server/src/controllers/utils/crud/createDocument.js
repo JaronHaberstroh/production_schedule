@@ -15,7 +15,6 @@ const createDocument = async (model, params) => {
     };
   } catch (error) {
     // Handle error
-    console.error("Error creating document: ", error);
     return {
       success: false,
       message: error.message || `Error creating ${model.modelName} document`,
