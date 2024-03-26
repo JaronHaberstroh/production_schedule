@@ -1,18 +1,24 @@
 const updateDocument = async (model, documentID, params) => {
+  // Init variabale
+  let result;
+
   try {
     // Update document
-    const result = await model.updateOne(documentID, params);
+    result = await model.updateOne(documentID, params);
 
     return {
       success: true,
-      message: "Successfully updated document",
+      message: `Successfully updated ${model.modelName}`,
       data: result,
+      error: null,
     };
   } catch (error) {
     return {
       success: false,
-      message: "Error updating document",
-      data: error,
+      message:
+        error.message || `Error updating ${model.modelName}, params: ${params}`,
+      data: result,
+      error: error,
     };
   }
 };

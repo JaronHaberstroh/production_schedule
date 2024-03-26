@@ -1,11 +1,10 @@
 import { describe, test, expect } from "vitest";
 import { beforeAll, afterEach, afterAll } from "vitest";
-import Department from "../../../../src/models/department.js";
+import Department from "#models/department.js";
 
-import { connectDB } from "../../../../src/utils/mongoDB/mongooseSetup.js";
-import { disconnectDB } from "../../../../src/utils/mongoDB/mongooseSetup.js";
+import { connectDB, disconnectDB } from "#utils/mongoDB/mongooseSetup.js";
 
-import createDocument from "../../../../src/controllers/utils/crud/createDocument.js";
+import createDocument from "#controllers/utils/crud/createDocument.js";
 
 describe("createDocument.js", () => {
   // Init test DB variables
@@ -39,8 +38,9 @@ describe("createDocument.js", () => {
 
       // Expect return object to contain new document Data
       expect(document.success).toBeTruthy();
-      expect(document.message).toBe("Document created successfully");
+      expect(document.message).toBe("Successfully created Department");
       expect(document.data).toBeTypeOf("object");
+      expect(document.error).toBe(null);
     });
 
     test("should add given value to DB", async () => {
@@ -62,7 +62,8 @@ describe("createDocument.js", () => {
       // Expect error message
       expect(result.success).toBeFalsy();
       expect(result.message).toContain("Department validation failed:");
-      expect(result.data).toBeTypeOf("object");
+      expect(result.data).toBeTypeOf("undefined");
+      expect(result.error).toBeTypeOf("object");
     });
   });
 });

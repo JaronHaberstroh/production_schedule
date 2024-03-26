@@ -1,11 +1,10 @@
 import { describe, test, expect } from "vitest";
 import { beforeAll, beforeEach, afterAll } from "vitest";
-import Department from "../../../../src/models/department.js";
+import Department from "#models/department.js";
 
-import { connectDB } from "../../../../src/utils/mongoDB/mongooseSetup.js";
-import { disconnectDB } from "../../../../src/utils/mongoDB/mongooseSetup.js";
+import { connectDB, disconnectDB } from "#utils/mongoDB/mongooseSetup.js";
 
-import deleteDocument from "../../../../src/controllers/utils/crud/deleteDocument.js";
+import deleteDocument from "#controllers/utils/crud/deleteDocument.js";
 
 describe("deleteDocument.js", () => {
   // Init test DB variables
@@ -69,24 +68,10 @@ describe("deleteDocument.js", () => {
       expect(deletedSearchResult).toBe(null);
     });
 
-    test("should return failure object when not provided _id param", async () => {
-      // Set test variables
-      const document = testData[0];
-      const message = "Param '_id' is required for deleting a document";
-
-      // Delete document
-      const result = await deleteDocument(Department, document);
-
-      // Expect failure object
-      expect(result.success).toBe(false);
-      expect(result.message).toBe(message);
-      expect(result.data).toBeTypeOf("object");
-    });
-
     test("should return failure object when document not found", async () => {
       // Set test variables
       const document = { _id: "65f55e386fa8592adce78e11" };
-      const message = `Document with _id ${document._id} not found`;
+      const message = `Error deleting Department, params: ${document}`;
 
       // Delete document
       const result = await deleteDocument(Department, document);

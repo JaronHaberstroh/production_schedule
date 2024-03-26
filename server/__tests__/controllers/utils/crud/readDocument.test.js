@@ -1,11 +1,10 @@
 import { describe, test, expect } from "vitest";
 import { beforeAll, afterAll } from "vitest";
-import Department from "../../../../src/models/department.js";
+import Department from "#models/department.js";
 
-import { connectDB } from "../../../../src/utils/mongoDB/mongooseSetup.js";
-import { disconnectDB } from "../../../../src/utils/mongoDB/mongooseSetup.js";
+import { connectDB, disconnectDB } from "#utils/mongoDB/mongooseSetup.js";
 
-import readDocument from "../../../../src/controllers/utils/crud/readDocument.js";
+import readDocument from "#controllers/utils/crud/readDocument.js";
 
 describe("readDocument.js", () => {
   // Init test DB variables

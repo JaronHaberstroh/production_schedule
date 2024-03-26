@@ -1,24 +1,29 @@
 const createDocument = async (model, params) => {
-  let validationErrors;
+  // Init variabale
+  let savedDocument;
+
   try {
     // Create new document
-    const newDocument = await new model(params);
+    const newDocument = new model(params);
 
     // Save new document
-    const savedDocument = await newDocument.save();
+    savedDocument = await newDocument.save();
 
     // Return success object
     return {
       success: true,
-      message: "Document created successfully",
+      message: `Successfully created ${model.modelName}`,
       data: savedDocument,
+      error: null,
     };
   } catch (error) {
     // Handle error
     return {
       success: false,
-      message: error.message || `Error creating ${model.modelName} document`,
-      data: error,
+      message:
+        error.message || `Error creating ${model.modelName}, params: ${params}`,
+      data: savedDocument,
+      error: error,
     };
   }
 };

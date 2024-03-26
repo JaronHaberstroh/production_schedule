@@ -1,19 +1,26 @@
 const readDocument = async (model, params) => {
+  // Init variabale
+  let result;
+
   try {
     // Find document based on provided params
-    const result = await model.find(params);
+    result = await model.find(params);
 
     // Return success object
     return {
       success: true,
-      message: "Successfully retried departments matching params",
+      message: `Successfully retreived ${model.modelName}`,
       data: result,
+      error: null,
     };
   } catch (error) {
     // Handle error
     return {
       success: false,
-      message: `Failed to retrieve ${model}`,
+      message:
+        error.message ||
+        `Error retrieving ${model.modelName}, params: ${params}`,
+      data: result,
       error: error,
     };
   }
