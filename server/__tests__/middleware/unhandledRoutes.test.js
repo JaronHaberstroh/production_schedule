@@ -2,9 +2,8 @@ import { describe, test, expect, vi } from "vitest";
 import { beforeAll } from "vitest";
 
 import unhandledRoutes from "../../src/middleware/unhandledRoutes";
-import AppError from "../../src/utils/appError";
 
-describe("unhandledRoutes", () => {
+describe("unhandledRoutes middleware", () => {
   // Init test varaibles
   let req, res, next;
 
@@ -19,9 +18,8 @@ describe("unhandledRoutes", () => {
     // Call middleware
     unhandledRoutes(req, res, next);
 
-    console.log(next);
-
     // Expect AppError to be passed to next
     expect(next).toBeCalled();
+    expect(next).toHaveReturned();
   });
 });

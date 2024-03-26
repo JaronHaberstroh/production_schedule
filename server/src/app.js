@@ -3,6 +3,7 @@ import cors from "cors";
 
 import departmentRoutes from "#routes/departmentRoutes.js";
 import unhandledRoutes from "#middleware/unhandledRoutes.js";
+import errorHandler from "./middleware/errorHandler";
 
 // Initialize app instance
 const app = express();
@@ -23,15 +24,6 @@ app.use("/department", departmentRoutes);
 app.use(unhandledRoutes);
 
 //Error handling middleware
-app.use((error, _, res, next) => {
-  if (res.headerSent) {
-    return next(error);
-  }
-  res.status(error.statusCode || 500);
-  res.json({
-    status: "error",
-    message: error.message || "An unknown error occurred!",
-  });
-});
+app.use(errorHandler);
 
 export default app;
