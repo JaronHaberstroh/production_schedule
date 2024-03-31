@@ -1,24 +1,30 @@
 import Department from "#models/department.js";
-import successResponse from "#utils/responses/success/success.js";
-
 import readDocument from "../utils/crud/readDocument.js";
 
+import AppError from "#utils/appError.js";
+
 const readDepartment = async (req, res) => {
-  const departmentData = req.params;
+  const departmentName = req.params;
 
-  try {
-    // Find Departments fitting search params
-    const result = await readDocument(Department, departmentData);
+  // Find Departments fitting search params
+  const result = await readDocument(Department, departmentName);
 
-    return res.status(200).json(
-      successResponse({
-        message: result.message,
-        data: result.data,
-      })
-    );
-  } catch (error) {
-    res.json(serverErrorResponse({}));
+  if (!result.success) {
+    throw new AppError(result.message || "Unable to find Departments", 500);
   }
+
+  if (!result.data) {
+    throw new AppError(result.message || "No data found for search", 404);
+  }
+
+  res.status(200);
+  res.json({
+    statusCode: 200,
+    success: true,
+    message: result.message || "Successfully found Departments",
+    data: result.data,
+    error: false,
+  });
 };
 
 export default readDepartment;
